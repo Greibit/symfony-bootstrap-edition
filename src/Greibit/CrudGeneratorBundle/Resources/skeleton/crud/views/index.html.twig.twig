@@ -1,0 +1,96 @@
+{{ "{% extends 'GreibitPanelAdminBundle::layout.html.twig' %}" }}
+
+{{ "{% block title %}" }}
+{{ "{{ parent() }} - {{ 'views.index.list'|trans({'%entity%': '" }}{{ entity }}{{ "'}, 'GreibitCrudGeneratorBundle') }}" }}
+{{ "{% endblock %}" }}
+
+{{ "{% block page %}" }}
+
+    <div class="row">
+
+        <div class="col-md-12">
+            <h1 class="page-header">
+                {{ "{{ 'views.index.list'|trans({'%entity%': '" }}{{ entity }}{{ "'}, 'GreibitCrudGeneratorBundle') }}" }}
+                {% if 'new' in actions %}
+                    <a class="btn btn-primary btn-circle" href="{{ "{{ path('"~ route_name_prefix ~"_new') }}" }}">
+                        <span class="glyphicon glyphicon-star"></span>
+                        {{ "{{ 'views.index.createnew'|trans({}, 'GreibitCrudGeneratorBundle') }}" }} {{ entity }}
+                    </a>
+                {% endif %}
+            </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 well">
+            <form class="filter-form" action="{{ "{{ path('"~ route_name_prefix ~"') }}" }}"
+                  method="get" {{ "{{ form_enctype(filterForm) }}" }}>
+                <p>
+                    <button type="submit" name="filter_action" value="filter"
+                            class="btn btn-primary btn-xs">{{ "{{ 'views.index.filter'|trans({}, 'GreibitCrudGeneratorBundle') }}" }}</button>
+                    <button type="submit" name="filter_action" value="reset"
+                            class="btn btn-default btn-xs">{{ "{{ 'views.index.reset'|trans({}, 'GreibitCrudGeneratorBundle') }}" }}</button>
+                </p>
+                <table class="table table-striped table-bordered table-condensed">
+                    <thead>
+                    <tr>
+                        {%- for field, metadata in fields %}
+
+                            <th>
+                                {{ "{{ form_row(filterForm." ~ field ~ ") }}" }}
+                            </th>
+
+                        {%- endfor %}
+
+                        <th>{{ "{{ 'views.index.actions'|trans({}, 'GreibitCrudGeneratorBundle') }}" }}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{ '{% for entity in entities %}' }}
+                    <tr>
+
+                        {%- for field, metadata in fields %}
+                            {%- if loop.first and ('show' in actions) %}
+
+                                <td>
+                                    <a href="{{ "{{ path('"~ route_name_prefix ~"_show', { 'id': entity.id }) }}" }}">{{ '{{ entity.'~ field|replace({'_': ''}) ~' }}' }}</a>
+                                </td>
+
+                            {%- elseif metadata.type in ['date', 'datetime'] %}
+
+                                <td>{{ '{% if entity.'~ field|replace({'_': ''}) ~' %}{{ entity.'~ field|replace({'_': ''}) ~'|date(\'Y-m-d H:i:s\') }}{% endif %}' }}</td>
+
+                            {%- else %}
+
+                                <td>{{ '{{ entity.'~ field|replace({'_': ''}) ~' }}' }}</td>
+
+                            {%- endif %}
+
+                            {%- if loop.last %}
+
+                                <td>
+                                    {%- include "crud/views/others/actions.html.twig.twig" %}
+                                </td>
+
+                            {%- endif %}
+                        {%- endfor %}
+
+                    </tr>
+                    {{ '{% endfor %}' }}
+                    </tbody>
+                </table>
+                {{ "{{ form_rest(filterForm) }}" }}
+            </form>
+            <div class="row">
+                <div class="col-md-4">
+                    {{ '{{ pagerHtml|raw }}' }}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+{{ "{% endblock %}" }}

@@ -1,8 +1,8 @@
 {
-    "name": "symfony/framework-standard-edition",
+    "name": "greibit/symfony-bootstrap-edition",
     "license": "MIT",
     "type": "project",
-    "description": "The \"Symfony Standard Edition\" distribution",
+    "description": "The \"Symfony Bootstrap Edition\" distribution",
     "autoload": {
         "psr-0": { "": "src/" }
     },
@@ -18,7 +18,15 @@
         "sensio/distribution-bundle": "~2.3",
         "sensio/framework-extra-bundle": "~3.0",
         "sensio/generator-bundle": "~2.3",
-        "incenteev/composer-parameter-handler": "~2.0"
+        "incenteev/composer-parameter-handler": "~2.0",
+        "braincrafted/bootstrap-bundle": "~2.0@alpha",
+        "components/jquery": "2.1.*",
+        "twbs/bootstrap": "3.0.0",
+        "components/font-awesome": "4.0.*",
+        "leafo/lessphp": "0.4.0",
+        "doctrine/doctrine-fixtures-bundle": "dev-master",
+        "pagerfanta/pagerfanta": "1.0.*@dev",
+        "lexik/form-filter-bundle": "2.0.*"
     },
     "scripts": {
         "post-install-cmd": [

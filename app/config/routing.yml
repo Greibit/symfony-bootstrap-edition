@@ -1,0 +1,4 @@
+greibit_panel_admin:
+    resource: "@GreibitPanelAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
