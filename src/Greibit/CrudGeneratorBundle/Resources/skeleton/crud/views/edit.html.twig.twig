@@ -7,7 +7,13 @@
 {{ "{% block page %}" }}
 <div class="row">
     <div class="col-md-12">
-        <h1 class="page-header">{{ "{{ 'views.edit.edit'|trans({'%entity%': '" }}{{ entity }}{{ "'}, 'GreibitCrudGeneratorBundle') }}" }}</h1>
+        <h1 class="page-header">
+            {{ "{{ 'views.edit.edit'|trans({'%entity%': '" }}{{ entity }}{{ "'}, 'GreibitCrudGeneratorBundle') }}" }}
+            <span class="float-right">
+            {% set hide_edit, hide_delete = true, false %}
+            {% include 'crud/views/others/record_actions.html.twig.twig' %}
+            </span>
+        </h1>
 
         <form class="well" action="{{ "{{ path('"~ route_name_prefix ~"_update', { 'id': entity.id }) }}" }}" method="post" {{ "{{ form_enctype(edit_form) }}" }}>
             <input type="hidden" name="_method" value="PUT" />
@@ -16,9 +22,6 @@
                 <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-{{ action_icons['edit'] }}"></span> {{ "{{ 'views.edit.editbutton'|trans({}, 'GreibitCrudGeneratorBundle') }}" }}</button>
             </p>
         </form>
-
-        {% set hide_edit, hide_delete = true, false %}
-        {% include 'crud/views/others/record_actions.html.twig.twig' %}
     </div>
 </div>
 {{ "{% endblock %}" }}

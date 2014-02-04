@@ -286,6 +286,11 @@ table.dataTable thead .sorting:after {
     line-height: 1.33;
 }
 
+.btn-circle.btn-lg .glyphicon{
+    left:-1px;
+    top: 3px;
+}
+
 .btn-circle.btn-xl {
     width: 70px;
     height: 70px;

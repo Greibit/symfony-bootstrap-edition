@@ -63,3 +63,5 @@ braincrafted_bootstrap:
     less_filter: lessphp
     auto_configure:
         assetic: false
+    customize:
+        variables_file: %kernel.root_dir%/Resources/less/variables.less

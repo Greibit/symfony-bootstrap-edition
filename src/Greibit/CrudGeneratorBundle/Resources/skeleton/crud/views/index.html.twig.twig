@@ -11,10 +11,10 @@
         <div class="col-md-12">
             <h1 class="page-header">
                 {{ "{{ 'views.index.list'|trans({'%entity%': '" }}{{ entity }}{{ "'}, 'GreibitCrudGeneratorBundle') }}" }}
+
                 {% if 'new' in actions %}
-                    <a class="btn btn-primary btn-circle" href="{{ "{{ path('"~ route_name_prefix ~"_new') }}" }}">
+                    <a class="btn btn-primary btn-circle btn-lg float-right" href="{{ "{{ path('"~ route_name_prefix ~"_new') }}" }}">
                         <span class="glyphicon glyphicon-star"></span>
-                        {{ "{{ 'views.index.createnew'|trans({}, 'GreibitCrudGeneratorBundle') }}" }} {{ entity }}
                     </a>
                 {% endif %}
             </h1>
@@ -25,12 +25,9 @@
             <form class="filter-form" action="{{ "{{ path('"~ route_name_prefix ~"') }}" }}"
                   method="get" {{ "{{ form_enctype(filterForm) }}" }}>
                 <p>
-                    <button type="submit" name="filter_action" value="filter"
-                            class="btn btn-primary btn-xs">{{ "{{ 'views.index.filter'|trans({}, 'GreibitCrudGeneratorBundle') }}" }}</button>
-                    <button type="submit" name="filter_action" value="reset"
-                            class="btn btn-default btn-xs">{{ "{{ 'views.index.reset'|trans({}, 'GreibitCrudGeneratorBundle') }}" }}</button>
+
                 </p>
-                <table class="table table-striped table-bordered table-condensed">
+                <table class="crud-table table table-striped table-bordered table-condensed">
                     <thead>
                     <tr>
                         {%- for field, metadata in fields %}
@@ -41,7 +38,12 @@
 
                         {%- endfor %}
 
-                        <th>{{ "{{ 'views.index.actions'|trans({}, 'GreibitCrudGeneratorBundle') }}" }}</th>
+                        <th>
+                            <button type="submit" name="filter_action"  value="filter"
+                                    class="btn btn-primary btn-xs filter-button"><i class="fa fa-filter"></i> {{ "{{ 'views.index.filter'|trans({}, 'GreibitCrudGeneratorBundle') }}" }}</button>
+                            <button type="submit" name="filter_action" value="reset"
+                                    class="btn btn-default btn-xs filter-button"><i class="fa fa-eraser"></i> {{ "{{ 'views.index.reset'|trans({}, 'GreibitCrudGeneratorBundle') }}" }}</button>
+                        </th>
                     </tr>
                     </thead>
                     <tbody>
@@ -51,23 +53,23 @@
                         {%- for field, metadata in fields %}
                             {%- if loop.first and ('show' in actions) %}
 
-                                <td>
+                                <td class="id-td">
                                     <a href="{{ "{{ path('"~ route_name_prefix ~"_show', { 'id': entity.id }) }}" }}">{{ '{{ entity.'~ field|replace({'_': ''}) ~' }}' }}</a>
                                 </td>
 
                             {%- elseif metadata.type in ['date', 'datetime'] %}
 
-                                <td>{{ '{% if entity.'~ field|replace({'_': ''}) ~' %}{{ entity.'~ field|replace({'_': ''}) ~'|date(\'Y-m-d H:i:s\') }}{% endif %}' }}</td>
+                                <td class="date-td">{{ '{% if entity.'~ field|replace({'_': ''}) ~' %}{{ entity.'~ field|replace({'_': ''}) ~'|date(\'Y-m-d H:i:s\') }}{% endif %}' }}</td>
 
                             {%- else %}
 
-                                <td>{{ '{{ entity.'~ field|replace({'_': ''}) ~' }}' }}</td>
+                                <td class="{{ metadata.type }}-td">{{ '{{ entity.'~ field|replace({'_': ''}) ~' }}' }}</td>
 
                             {%- endif %}
 
                             {%- if loop.last %}
 
-                                <td>
+                                <td class="actions-td">
                                     {%- include "crud/views/others/actions.html.twig.twig" %}
                                 </td>
 
@@ -81,7 +83,7 @@
                 {{ "{{ form_rest(filterForm) }}" }}
             </form>
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-12">
                     {{ '{{ pagerHtml|raw }}' }}
                 </div>
 

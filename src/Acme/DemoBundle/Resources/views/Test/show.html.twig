@@ -7,7 +7,28 @@
 {% block page %}
 <div class="row">
     <div class="col-md-12">
-<h1 class="page-header">Test</h1>
+    <h1 class="page-header">
+        Test
+        <span class="float-right">
+                            <div class="float-left">
+        <a class="btn btn-default btn-circle btn-lg" href="{{ path('test') }}">
+            <span class="glyphicon glyphicon-align-justify"></span>
+        </a>
+    </div>
+    <div class="float-left">
+        <a class="btn btn-primary btn-circle btn-lg" href="{{ path('test_edit', { 'id': entity.id }) }}">
+            <span class="glyphicon glyphicon-pencil"></span>
+        </a>
+    </div>
+    <div class="float-left">
+        <form action="{{ path('test_delete', { 'id': entity.id }) }}" method="post">
+            <input type="hidden" name="_method" value="DELETE" />
+            {{ form_widget(delete_form) }}
+            <button class="btn btn-danger btn-circle btn-lg" type="submit" onclick="return confirm('{{ 'views.recordactions.confirm'|trans({}, 'GreibitCrudGeneratorBundle') }}');"><span class="glyphicon glyphicon-trash"></span></button>
+        </form>
+    </div>
+        </span>
+    </h1>
 
 <form class="form-horizontal">
     <fieldset>        <div class="form-group">
@@ -33,24 +54,6 @@
         </div>    </fieldset>
 </form>
 
-<div>
-    <div class="float-left">
-        <a class="btn btn-default" href="{{ path('test') }}">
-            <span class="glyphicon glyphicon-align-justify"></span> {{ 'views.recordactions.backtothelist'|trans({}, 'GreibitCrudGeneratorBundle') }}
-        </a>
-    </div>
-    <div class="float-left">
-        <a class="btn btn-primary" href="{{ path('test_edit', { 'id': entity.id }) }}">
-            <span class="glyphicon glyphicon-pencil"></span> {{ 'views.recordactions.edit'|trans({}, 'GreibitCrudGeneratorBundle') }}
-        </a>
-    </div>
-    <div class="float-left">
-        <form action="{{ path('test_delete', { 'id': entity.id }) }}" method="post">
-            <input type="hidden" name="_method" value="DELETE" />
-            {{ form_widget(delete_form) }}
-            <button class="btn btn-danger" type="submit" onclick="return confirm('{{ 'views.recordactions.confirm'|trans({}, 'GreibitCrudGeneratorBundle') }}');"><span class="glyphicon glyphicon-trash"></span> {{ 'views.recordactions.delete'|trans({}, 'GreibitCrudGeneratorBundle') }}</button>
-        </form>
-    </div>
-</div></div>
+</div>
 </div>
 {% endblock %}

@@ -7,7 +7,16 @@
 {% block page %}
 <div class="row">
     <div class="col-md-12">
-        <h1 class="page-header">{{ 'views.new.creation'|trans({'%entity%': 'Test'}, 'GreibitCrudGeneratorBundle') }}</h1>
+        <h1 class="page-header">
+            {{ 'views.new.creation'|trans({'%entity%': 'Test'}, 'GreibitCrudGeneratorBundle') }}
+            <span class="float-right">
+                            <div class="float-left">
+        <a class="btn btn-default btn-circle btn-lg" href="{{ path('test') }}">
+            <span class="glyphicon glyphicon-align-justify"></span>
+        </a>
+    </div>
+            </span>
+        </h1>
 
         <form class="well" action="{{ path('test_create') }}" method="post" {{ form_enctype(form) }}>
             {{ form_widget(form) }}
@@ -15,13 +24,6 @@
                 <button type="submit" class="btn btn-success">{{ 'views.new.create'|trans({}, 'GreibitCrudGeneratorBundle') }}</button>
             </p>
         </form>
-
-                <div>
-    <div class="float-left">
-        <a class="btn btn-default" href="{{ path('test') }}">
-            <span class="glyphicon glyphicon-align-justify"></span> {{ 'views.recordactions.backtothelist'|trans({}, 'GreibitCrudGeneratorBundle') }}
-        </a>
     </div>
-</div>    </div>
 </div>
 {% endblock %}
