@@ -1,3 +1,0 @@
-greibit_panel_admin_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: GreibitPanelAdminBundle:Default:index }

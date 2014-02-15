@@ -1,3 +1,0 @@
-GreibitCrudGeneratorBundle_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: GreibitCrudGeneratorBundle:Default:index }
