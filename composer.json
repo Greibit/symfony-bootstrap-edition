@@ -6,12 +6,6 @@
     "autoload": {
         "psr-0": { "": "src/" }
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/Greibit/CrudGeneratorBundle"
-        }
-    ],
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "~2.4",
@@ -33,8 +27,7 @@
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "pagerfanta/pagerfanta": "1.0.*@dev",
         "lexik/form-filter-bundle": "2.0.*",
-        "greibit/panel-admin-bundle": "dev-master",
-        "greibit/crud-generator": "dev-master"
+        "greibit/panel-admin-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [

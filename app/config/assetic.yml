@@ -15,7 +15,7 @@ assetic:
                 - %kernel.root_dir%/../vendor/braincrafted/bootstrap-bundle/Braincrafted/Bundle/BootstrapBundle/Resources/less/form.less
                 - %kernel.root_dir%/../vendor/components/font-awesome/css/font-awesome.css
                 - @GreibitPanelAdminBundle/Resources/public/css/sb-admin.css
-                - @GreibitCrudGeneratorBundle/Resources/public/css/crud.css
+                - @GreibitPanelAdminBundle/Resources/public/css/crud.css
             filters:
                 - lessphp
                 - cssrewrite
