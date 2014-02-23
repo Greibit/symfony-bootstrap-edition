@@ -1,0 +1,3 @@
+greibit_demo_homepage:
+    path:  /hello/{name}
+    defaults: { _controller: GreibitDemoBundle:Default:index }

@@ -11,9 +11,11 @@ web/css/*
 web/js/*
 web/uploads/*
 components/
+public/
 
 # -- Composer -----------------------------------------
 composer.phar
+composer.lock
 
 # -- PHPUnit ------------------------------------------
 app/phpunit.xml  
