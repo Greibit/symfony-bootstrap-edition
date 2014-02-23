@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "99dee7cfe8c39161223de5446f5763cc",
+    "hash": "bab72b47ea744d5e61c0e422f0008272",
     "packages": [
         {
             "name": "braincrafted/bootstrap-bundle",
@@ -957,12 +957,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Greibit/PanelAdminBundle.git",
-                "reference": "8ef02533b8a364042e4197b4da5b36b8317c1ef6"
+                "reference": "8db4fcfb7680e9ece8cd2a86bcdb37f59e755152"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Greibit/PanelAdminBundle/zipball/8ef02533b8a364042e4197b4da5b36b8317c1ef6",
-                "reference": "8ef02533b8a364042e4197b4da5b36b8317c1ef6",
+                "url": "https://api.github.com/repos/Greibit/PanelAdminBundle/zipball/8db4fcfb7680e9ece8cd2a86bcdb37f59e755152",
+                "reference": "8db4fcfb7680e9ece8cd2a86bcdb37f59e755152",
                 "shasum": ""
             },
             "require": {
@@ -992,7 +992,7 @@
                 "bootstrap",
                 "panel"
             ],
-            "time": "2014-02-12 19:18:52"
+            "time": "2014-02-21 19:21:01"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1446,6 +1446,62 @@
                 "psr-3"
             ],
             "time": "2014-02-06 20:35:10"
+        },
+        {
+            "name": "oyejorge/less.php",
+            "version": "1.6.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oyejorge/less.php.git",
+                "reference": "cbf319cebf5b1d9faad3e46886f1744c471dba3f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oyejorge/less.php/zipball/cbf319cebf5b1d9faad3e46886f1744c471dba3f",
+                "reference": "cbf319cebf5b1d9faad3e46886f1744c471dba3f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Less": "lib/"
+                },
+                "classmap": [
+                    "lessc.inc.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Matt Agar",
+                    "homepage": "https://github.com/agar"
+                },
+                {
+                    "name": "Martin Jantošovič",
+                    "homepage": "https://github.com/Mordred"
+                },
+                {
+                    "name": "Josh Schmidt",
+                    "homepage": "https://github.com/oyejorge"
+                }
+            ],
+            "description": "PHP port of the Javascript version of LESS http://lesscss.org",
+            "homepage": "http://lessphp.gpeasy.com",
+            "keywords": [
+                "css",
+                "less",
+                "less.js",
+                "lesscss",
+                "php",
+                "stylesheet"
+            ],
+            "time": "2014-02-18 00:44:03"
         },
         {
             "name": "pagerfanta/pagerfanta",
@@ -2146,31 +2202,36 @@
         },
         {
             "name": "twbs/bootstrap",
-            "version": "v3.0.0",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "e8a1df5f060bf7e6631554648e0abde150aedbe4"
+                "reference": "a365d8689c3f3cee7f1acf86b61270ecca8e106d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/e8a1df5f060bf7e6631554648e0abde150aedbe4",
-                "reference": "e8a1df5f060bf7e6631554648e0abde150aedbe4",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/a365d8689c3f3cee7f1acf86b61270ecca8e106d",
+                "reference": "a365d8689c3f3cee7f1acf86b61270ecca8e106d",
                 "shasum": ""
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                }
+            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache-2.0"
+                "MIT"
             ],
             "authors": [
                 {
-                    "name": "sugeng tigefa",
-                    "email": "tigefa@gmail.com"
-                },
-                {
                     "name": "Jacob Thornton",
                     "email": "jacobthornton@gmail.com"
+                },
+                {
+                    "name": "Mark Otto",
+                    "email": "markdotto@gmail.com"
                 }
             ],
             "description": "Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.",
@@ -2179,7 +2240,7 @@
                 "bootstrap",
                 "css"
             ],
-            "time": "2013-08-19 21:18:20"
+            "time": "2014-02-13 17:24:59"
         },
         {
             "name": "twig/extensions",
@@ -2297,8 +2358,7 @@
         "braincrafted/bootstrap-bundle": 15,
         "doctrine/doctrine-fixtures-bundle": 20,
         "pagerfanta/pagerfanta": 20,
-        "greibit/panel-admin-bundle": 20,
-        "greibit/crud-generator": 20
+        "greibit/panel-admin-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"
