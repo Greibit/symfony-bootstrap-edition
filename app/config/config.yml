@@ -65,3 +65,6 @@ braincrafted_bootstrap:
         assetic: false
     customize:
         variables_file: %kernel.root_dir%/Resources/less/variables.less
+
+greibit_panel_admin:
+    menu_builder: 'GreibitDemoBundle:Menu:sidebar'
